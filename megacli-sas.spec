@@ -1,7 +1,7 @@
 Summary:	LSI Logic MegaRAID Linux MegaCLI
 Name:		megacli-sas
 Version:	1.01.39
-Release:	1
+Release:	2
 License:	LSI
 Group:		Base
 Source0:	http://www.lsi.com/support/downloads/megaraid/miscellaneous/linux/%{version}_Linux_Cli.zip
@@ -36,11 +36,11 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_sbindir}
 
 %ifarch %{ix86}
-install opt/MegaRAID/MegaCli/MegaCli $RPM_BUILD_ROOT%{_sbindir}/megacli-sas
+install opt/MegaRAID/MegaCli/MegaCli $RPM_BUILD_ROOT%{_sbindir}/MegaCli
 %endif
 
 %ifarch %{x8664}
-install opt/MegaRAID/MegaCli/MegaCli64 $RPM_BUILD_ROOT%{_sbindir}/megacli-sas
+install opt/MegaRAID/MegaCli/MegaCli64 $RPM_BUILD_ROOT%{_sbindir}/MegaCli
 %endif
 
 %clean
