@@ -1,4 +1,5 @@
-Summary:	LSI Logic MegaRAID Linux MegaCLI
+Summary:	LSI Logic MegaRAID Linux MegaCLI utility
+Summary(pl.UTF-8):	Linuksowe narzędzie MegaCLI dla macierzy LSI Logic MegaRAID
 Name:		megacli-sas
 Version:	1.01.39
 Release:	2
@@ -15,6 +16,18 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Tool to control MegaRAID controllers:
+- MegaRAID SAS 84016E
+- MegaRAID SAS 8408E
+- MegaRAID SAS 8480E
+- MegaRAID SAS 8308ELP
+- MegaRAID SAS 8344ELP
+- MegaRAID SAS 8304ELP
+- MegaRAID SAS 8300XLP
+- MegaRAID SAS 8708EM2
+- MegaRAID SAS 8880EM2
+
+%description -l pl.UTF-8
+Narzędzie do sterowania kontrolerami MegaRAID:
 - MegaRAID SAS 84016E
 - MegaRAID SAS 8408E
 - MegaRAID SAS 8480E
@@ -48,4 +61,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_sbindir}/*
+%attr(755,root,root) %{_sbindir}/MegaCli
