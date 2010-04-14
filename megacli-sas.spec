@@ -14,6 +14,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sbindir		/sbin
 
+# no debug symbols
+%define		_enable_debug_packages	0
+
 %description
 Tool to control MegaRAID controllers:
 - MegaRAID SAS 84016E
@@ -39,21 +42,17 @@ Narzędzie do sterowania kontrolerami MegaRAID:
 - MegaRAID SAS 8880EM2
 
 %prep
-%setup -q -c
-
-%build
+%setup -qc
 rpm2cpio *.rpm | cpio -i -d
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_sbindir}
-
 %ifarch %{ix86}
-install opt/MegaRAID/MegaCli/MegaCli $RPM_BUILD_ROOT%{_sbindir}/MegaCli
+install -p opt/MegaRAID/MegaCli/MegaCli $RPM_BUILD_ROOT%{_sbindir}/MegaCli
 %endif
-
 %ifarch %{x8664}
-install opt/MegaRAID/MegaCli/MegaCli64 $RPM_BUILD_ROOT%{_sbindir}/MegaCli
+install -p opt/MegaRAID/MegaCli/MegaCli64 $RPM_BUILD_ROOT%{_sbindir}/MegaCli
 %endif
 
 %clean
