@@ -9,6 +9,7 @@ Source0:	http://www.lsi.com/support/downloads/megaraid/miscellaneous/linux/%{ver
 # Source0-md5:	89dc235b90392eef0893ef461ce06500
 URL:		http://www.lsi.com/storage_home/products_home/internal_raid/megaraid_sas/megaraid_sas_8480e/#Miscellaneous
 BuildRequires:	rpm-utils
+BuildRequires:	unzip
 ExclusiveArch:	%{ix86} %{x8664}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
