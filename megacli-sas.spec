@@ -10,6 +10,8 @@ Source0:	MegaCli-8.00.40-1.i386.rpm
 # Source0-md5:	c1d375ea9047bae259819ec0487d8398
 BuildRequires:	rpm-utils
 BuildRequires:	unzip
+Requires:	sysfsutils >= 2.2.0
+Requires:	sysfsutils < 2.3.0
 ExclusiveArch:	%{ix86} %{x8664}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
