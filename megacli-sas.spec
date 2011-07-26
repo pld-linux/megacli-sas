@@ -1,13 +1,13 @@
 Summary:	LSI Logic MegaRAID Linux MegaCLI utility
 Summary(pl.UTF-8):	Linuksowe narzędzie MegaCLI dla macierzy LSI Logic MegaRAID
 Name:		megacli-sas
-Version:	8.00.40
+Version:	8.01.06
 Release:	1
 License:	LSI
 Group:		Base
 # http://www.lsi.com/storage_home/products_home/internal_raid/megaraid_sas/6gb_s_value_line/sas9260-8i/
-Source0:	MegaCli-8.00.40-1.i386.rpm
-# Source0-md5:	c1d375ea9047bae259819ec0487d8398
+Source0:	http://www.lsi.com/downloads/Public/MegaRAID%20Common%20Files/%{version}_Linux_MegaCLI.zip
+# Source0-md5:	f5647c907f0d8517d56d2ceb4942132c
 BuildRequires:	rpm-utils
 BuildRequires:	unzip
 Requires:	sysfsutils >= 2.2.0
@@ -64,7 +64,9 @@ Narzędzie do sterowania kontrolerami MegaRAID:
 
 %prep
 %setup -qcT
-rpm2cpio %{SOURCE0} | cpio -i -d
+unzip %{SOURCE0}
+unzip -o MegaCliLin.zip
+rpm2cpio MegaCli-*.rpm | cpio -i -d
 
 %install
 rm -rf $RPM_BUILD_ROOT
