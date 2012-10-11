@@ -65,9 +65,8 @@ Narzędzie do sterowania kontrolerami MegaRAID:
 
 %prep
 %setup -qcT
-unzip %{SOURCE0} LINUX/MegaCliLin.zip %{version}_MegaCLI.txt
-unzip -o LINUX/MegaCliLin.zip MegaCli-8.02.16-1.i386.rpm
-rpm2cpio MegaCli-%{version}*.rpm | cpio -i -d
+unzip %{SOURCE0} MegaCli_Linux/* %{version}_MegaCLI.txt
+rpm2cpio MegaCli_Linux/MegaCli-%{version}*.rpm | cpio -i -d
 
 %install
 rm -rf $RPM_BUILD_ROOT
