@@ -4,11 +4,12 @@ Name:		megacli-sas
 Version:	8.05.06
 Release:	1
 License:	LSI
-Group:		Base
-# http://www.lsi.com/storage_home/products_home/internal_raid/megaraid_sas/6gb_s_value_line/sas9260-8i/
-Source0:	http://www.lsi.com/downloads/Public/MegaRAID%20Common%20Files/%{version}_MegaCLI.zip
-# NoSource0-md5:	c3421608c7e3427318e41da18f91c38b
-NoSource:	0
+Group:		Applications/System
+# http://www.lsi.com/downloads/Public/MegaRAID%20Common%20Files/8.05.06_MegaCLI.zip
+# EULA acceptance required to download
+Source0:	%{version}_MegaCLI.zip
+# Source0-md5:	c3421608c7e3427318e41da18f91c38b
+Source1:	LICENSE.LSI
 BuildRequires:	rpm-utils
 BuildRequires:	unzip
 Requires:	sysfsutils >= 2.2.0
@@ -111,6 +112,7 @@ Narzędzie do sterowania kontrolerami MegaRAID:
 %setup -qcT
 unzip %{SOURCE0} MegaCli_Linux/* %{version}_MegaCLI.txt
 rpm2cpio MegaCli_Linux/MegaCli-%{version}*.rpm | cpio -i -d
+install %{SOURCE1} .
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -127,5 +129,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc %{version}_MegaCLI.txt
+%doc LICENSE.LSI %{version}_MegaCLI.txt
 %attr(755,root,root) %{_sbindir}/MegaCli
