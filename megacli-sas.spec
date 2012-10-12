@@ -23,10 +23,21 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Tool to control MegaRAID controllers:
+- MegaRAID SAS 9270-8i
+- MegaRAID SAS 9271-4i
+- MegaRAID SAS 9271-8i
+- MegaRAID SAS 9271-8iCC
+- MegaRAID SAS 9286-8e
+- MegaRAID SAS 9286CV-8e
+- MegaRAID SAS 9286CV-8eCC
+- MegaRAID SAS 9265-8i
+- MegaRAID SAS 9285-8e
 - MegaRAID SAS 9240-4i
 - MegaRAID SAS 9240-8i
 - MegaRAID SAS 9260-4i
+- MegaRAID SAS 9260CV-4i
 - MegaRAID SAS 9260-8i
+- MegaRAID SAS 9260CV-8i
 - MegaRAID SAS 9260DE-8i
 - MegaRAID SAS 9261-8i
 - MegaRAID SAS 9280-4i4e
@@ -35,19 +46,41 @@ Tool to control MegaRAID controllers:
 - MegaRAID SAS 9280-24i4e
 - MegaRAID SAS 9280-16i4e
 - MegaRAID SAS 9260-16i
+- MegaRAID SAS 9266-4i
+- MegaRAID SAS 9266-8i
+- MegaRAID SAS 9285CV-8e
 - MegaRAID SAS 8704ELP
 - MegaRAID SAS 8704EM2
 - MegaRAID SAS 8708ELP
 - MegaRAID SAS 8708EM2
 - MegaRAID SAS 8880EM2
 - MegaRAID SAS 8888ELP
+- MegaRAID SAS 8308ELP*
+- MegaRAID SAS 8344ELP*
+- MegaRAID SAS 84016E*
+- MegaRAID SAS 8408E*
+- MegaRAID SAS 8480E*
+- MegaRAID SATA 300-8ELP*
+
+* These older controllers should work but have not been tested.
 
 %description -l pl.UTF-8
 Narzędzie do sterowania kontrolerami MegaRAID:
+- MegaRAID SAS 9270-8i
+- MegaRAID SAS 9271-4i
+- MegaRAID SAS 9271-8i
+- MegaRAID SAS 9271-8iCC
+- MegaRAID SAS 9286-8e
+- MegaRAID SAS 9286CV-8e
+- MegaRAID SAS 9286CV-8eCC
+- MegaRAID SAS 9265-8i
+- MegaRAID SAS 9285-8e
 - MegaRAID SAS 9240-4i
 - MegaRAID SAS 9240-8i
 - MegaRAID SAS 9260-4i
+- MegaRAID SAS 9260CV-4i
 - MegaRAID SAS 9260-8i
+- MegaRAID SAS 9260CV-8i
 - MegaRAID SAS 9260DE-8i
 - MegaRAID SAS 9261-8i
 - MegaRAID SAS 9280-4i4e
@@ -56,12 +89,23 @@ Narzędzie do sterowania kontrolerami MegaRAID:
 - MegaRAID SAS 9280-24i4e
 - MegaRAID SAS 9280-16i4e
 - MegaRAID SAS 9260-16i
+- MegaRAID SAS 9266-4i
+- MegaRAID SAS 9266-8i
+- MegaRAID SAS 9285CV-8e
 - MegaRAID SAS 8704ELP
 - MegaRAID SAS 8704EM2
 - MegaRAID SAS 8708ELP
 - MegaRAID SAS 8708EM2
 - MegaRAID SAS 8880EM2
 - MegaRAID SAS 8888ELP
+- MegaRAID SAS 8308ELP*
+- MegaRAID SAS 8344ELP*
+- MegaRAID SAS 84016E*
+- MegaRAID SAS 8408E*
+- MegaRAID SAS 8480E*
+- MegaRAID SATA 300-8ELP*
+
+* Te starsze kontrolery powinny działać, ale nie zostało to przetestowane.
 
 %prep
 %setup -qcT
