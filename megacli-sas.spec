@@ -1,15 +1,14 @@
 Summary:	LSI Logic MegaRAID Linux MegaCLI utility
 Summary(pl.UTF-8):	Linuksowe narzędzie MegaCLI dla macierzy LSI Logic MegaRAID
 Name:		megacli-sas
-Version:	8.05.06
-Release:	4
-License:	LSI
+Version:	8.07.07
+Release:	1
+License:	Proprietary
 Group:		Applications/System
-# http://www.lsi.com/downloads/Public/MegaRAID%20Common%20Files/8.05.06_MegaCLI.zip
-# EULA acceptance required to download
-Source0:	%{version}_MegaCLI.zip
-# Source0-md5:	c3421608c7e3427318e41da18f91c38b
-Source1:	LICENSE.LSI
+Source0:	https://docs.broadcom.com/docs-and-downloads/sep/oracle/files/Linux_MegaCLI-8-07-07.zip
+# Source0-md5:	bc63f322c725fc9cfc6671e24c1a3e2d
+Source1:	LICENSE
+URL:        https://docs.broadcom.com/docs/12351351
 BuildRequires:	rpm-utils
 BuildRequires:	unzip
 Requires:	sysfsutils >= 2.2.0
@@ -106,28 +105,34 @@ Narzędzie do sterowania kontrolerami MegaRAID:
 - MegaRAID SAS 8480E*
 - MegaRAID SATA 300-8ELP*
 
-* Te starsze kontrolery powinny działać, ale nie zostało to przetestowane.
+* Starsze kontrolery powinny działać, ale nie zostało to przetestowane.
 
 %prep
-%setup -qcT
-unzip %{SOURCE0} MegaCli_Linux/* %{version}_MegaCLI.txt
-rpm2cpio MegaCli_Linux/MegaCli-%{version}*.rpm | cpio -i -d
+%setup -qc
+rpm2cpio MegaCli-%{version}*.rpm | cpio -i -d
 install %{SOURCE1} .
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_sbindir}
+install -d $RPM_BUILD_ROOT{%{_sbindir},%{_libdir}}
 %ifarch %{ix86}
 install -p opt/MegaRAID/MegaCli/MegaCli $RPM_BUILD_ROOT%{_sbindir}/MegaCli
 %endif
 %ifarch %{x8664}
 install -p opt/MegaRAID/MegaCli/MegaCli64 $RPM_BUILD_ROOT%{_sbindir}/MegaCli
+install -p opt/MegaRAID/MegaCli/libstorelibir-2.so.* $RPM_BUILD_ROOT%{_libdir}
 %endif
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post   -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
+
 %files
 %defattr(644,root,root,755)
-%doc LICENSE.LSI %{version}_MegaCLI.txt
+%doc LICENSE
 %attr(755,root,root) %{_sbindir}/MegaCli
+%ifarch %{x8664}
+%{_libdir}/libstorelibir-2.so.*
+%endif
