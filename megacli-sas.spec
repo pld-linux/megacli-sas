@@ -122,6 +122,7 @@ install -p opt/MegaRAID/MegaCli/MegaCli $RPM_BUILD_ROOT%{_sbindir}/MegaCli
 install -p opt/MegaRAID/MegaCli/MegaCli64 $RPM_BUILD_ROOT%{_sbindir}/MegaCli
 install -p opt/MegaRAID/MegaCli/libstorelibir-2.so.* $RPM_BUILD_ROOT%{_libdir}
 %endif
+ln -s MegaCli $RPM_BUILD_ROOT%{_sbindir}/megacli
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -133,6 +134,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc LICENSE
 %attr(755,root,root) %{_sbindir}/MegaCli
+%attr(755,root,root) %{_sbindir}/megacli
 %ifarch %{x8664}
 %{_libdir}/libstorelibir-2.so.*
 %endif
